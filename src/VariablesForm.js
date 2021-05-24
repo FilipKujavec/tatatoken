@@ -17,16 +17,17 @@ function VariablesForm({ setState, state }) {
 
   const sliderFetch = (daysSet) => {
     fetch(`https://api.coingecko.com/api/v3/coins/hakuna-metata/market_chart?vs_currency=usd&days=${daysSet}&interval=daily`)
-              .then(res => res.json())
-              .then((data) => {
-                const volumes = data.total_volumes
-                const days = data.total_volum 
-                for (let i = 0; i < volumes.length; i++) {
-                  volumeSum += volumes[i][1]
-                }
-                setState({ ...state, volume: Number((volumeSum/days).toFixed(2)) })
-              })
-              .catch(console.log)
+      .then(res => res.json())
+      .then((data) => {
+        const volumes = data.total_volumes
+        const days = data.total_volumes.length
+        let volumeSum = 0
+        for (let i = 0; i < volumes.length; i++) {
+          volumeSum += volumes[i][1]
+        }
+        setState({ ...state, volume: Number((volumeSum/days).toFixed(2)) })
+      })
+      .catch(console.log)
   };
       
 
