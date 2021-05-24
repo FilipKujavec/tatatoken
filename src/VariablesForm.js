@@ -4,6 +4,32 @@ function VariablesForm({ setState, state }) {
 
   const { holdings, period, supply, volume, days } = state;
 
+  //Debouncing for days slider
+  React.useEffect(() => {
+    const timeset = setTimeout(() => {
+      sliderFetch(days);
+    }, 100);
+
+    return () => {
+      clearTimeout(timeset);
+    };
+  }, [days])
+
+  const sliderFetch = (daysSet) => {
+    fetch(`https://api.coingecko.com/api/v3/coins/hakuna-metata/market_chart?vs_currency=usd&days=${daysSet}&interval=daily`)
+              .then(res => res.json())
+              .then((data) => {
+                const volumes = data.total_volumes
+                const days = data.total_volum 
+                for (let i = 0; i < volumes.length; i++) {
+                  volumeSum += volumes[i][1]
+                }
+                setState({ ...state, volume: Number((volumeSum/days).toFixed(2)) })
+              })
+              .catch(console.log)
+  };
+      
+
   return (
     <section>
       <h2 style={{textAlign: 'center', marginBottom: '24px'}}>Calculate Your Passive Income</h2>
@@ -70,23 +96,7 @@ function VariablesForm({ setState, state }) {
             value={days}
             className="slider"
             id="days"
-            onChange={({ target }) => {
-              const daysSet = Number(target.value)
-
-              fetch(`https://api.coingecko.com/api/v3/coins/hakuna-metata/market_chart?vs_currency=usd&days=${daysSet}&interval=daily`)
-              .then(res => res.json())
-              .then((data) => {
-                const volumes = data.total_volumes
-                const days = data.total_volumes.length
-                let volumeSum = 0
-                for (let i = 0; i < volumes.length; i++) {
-                  volumeSum += volumes[i][1]
-                }
-                console.log(daysSet)
-                setState({ ...state, volume: Number((volumeSum/days).toFixed(2)), days: daysSet })
-              })
-              .catch(console.log)
-            }}
+            onChange={({ target }) => setState({ ...state, days: Number(target.value) })}
           />
         </label>
       </div>
