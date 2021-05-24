@@ -1,0 +1,187 @@
+@import url("https://fonts.googleapis.com/css?family=Karla");
+
+body {
+  background: #24262e;
+  font-family: "Karla", sans-serif;
+  color: white;
+  margin: 24px;
+  max-width: 100%;
+  overflow-x: hidden;
+}
+
+.text-center {
+  text-align: center;
+}
+
+h1,
+h2 {
+  margin-top: 0;
+}
+
+h1 {
+  margin-bottom: 24px;
+}
+
+h2 {
+  margin-bottom: 16px;
+}
+
+section {
+  margin-bottom: 24px;
+}
+
+.variableInput {
+  display: block;
+  padding: 0.375rem 0.75rem;
+  font-size: 1rem;
+  line-height: 1.5;
+  font-weight: 400;
+  color: #495057;
+  background-color: #fff;
+  border: 1px solid orange;
+  width: 18rem;
+  margin-top: 8px;
+}
+
+.variableInput:focus {
+  outline: none;
+}
+
+.variableInput::-webkit-outer-spin-button,
+.variableInput::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+.variableInput[type=number] {
+  -moz-appearance: textfield;
+}
+
+hr {
+  margin: 24px 0;
+  margin-right: 16px;
+  border: 0;
+  height: 1px;
+  background: orange;
+}
+
+label {
+  margin-bottom: 16px;
+  margin-left: 8px;
+  margin-right: 8px;
+}
+
+button[type="button"] {
+  cursor: pointer;
+  background-color: #d515a9;
+  border: none;
+  color: white;
+  border-radius: 4px;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+}
+
+button[type="button"]:hover {
+  cursor: pointer;
+  background-color: rgb(162, 16, 128);
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+}
+
+.flex {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-left: -16px;
+}
+
+table {
+  width: 75%;
+  color: #212529;
+  border-collapse: collapse;
+}
+
+table th,
+table td {
+  text-align: inherit;
+  padding: 0.75rem;
+  border-top: 1px solid #dee2e6;
+  vertical-align: top;
+}
+
+table th {
+  background-color: #e9ecef;
+}
+
+table thead th {
+  vertical-align: bottom;
+}
+
+#annualCompoundCalculator {
+  min-width: 400px;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.slidecontainer {
+  width: 100%; /* Width of the outside container */
+  margin-left: 16px;
+  margin-right: 0;
+  position: relative;
+}
+
+/* The slider itself */
+.slider {
+  -webkit-appearance: none;  /* Override default CSS styles */
+  appearance: none;
+  width: calc(100% - 20px); /* Full-width */
+  height: 50px; /* Specified height */
+  background: white; /* Grey background */
+  outline: none; /* Remove outline */
+  opacity: 1; /* Set transparency (for mouse-over effects on hover) */
+  -webkit-transition: .2s; /* 0.2 seconds transition on hover */
+  transition: opacity .2s;
+  margin-top: 8px;
+  border: 1px solid orange;
+}
+
+/* Mouse-over effects */
+.slider:hover {
+  opacity: 1; /* Fully shown on mouse-over */
+}
+
+/* The slider handle (use -webkit- (Chrome, Opera, Safari, Edge) and -moz- (Firefox) to override default look) */
+.slider::-webkit-slider-thumb {
+  -webkit-appearance: noayne; /* Override default look */
+  appearance: none;
+  width: 60px; /* Set a specific slider handle width */
+  height: 50px; /* Slider handle height */
+  background: orange; /* Green background */
+  cursor: pointer; /* Cursor on hover */
+}
+
+.slider::-moz-range-thumb {
+  width: 60px; /* Set a specific slider handle width */
+  height: 50px; /* Slider handle height */
+  background: orange; /* Green background */
+  cursor: pointer; /* Cursor on hover */
+}
+
+.rangeLabel {
+  pointer-events: none;
+  user-select: none;
+  display: flex;
+  justify-content: space-around;
+  width: calc(100% - 20px); /* Full-width */
+  position: absolute;
+  color: black;
+  margin-top: 21px;
+}
